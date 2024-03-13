@@ -10,7 +10,7 @@ c. https://github.com/ahmed1996said/gardnet?tab=readme-ov-file (<== this is from
 
 d. https://github.com/Vijaisai/final-year-projrct/blob/master/Glaucoma_Full.ipynb (AW)
 
-e. https://github.com/facebookresearch/dinov2
+e. https://github.com/facebookresearch/dinov2 (ZY)
 
 ## Papers
 a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf (ZY)
