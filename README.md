@@ -3,5 +3,5 @@
 # Methodology
 
 # Previous works
-## Github Repo
+## Github Repositories
 ## Papers
