@@ -6,7 +6,7 @@ a. https://github.com/DM2LL/JustRAIGS-IEEE-ISBI-2024
 
 b. https://github.com/kr-viku/GLAUCOMA-DETECTION
 
-c. https://github.com/ahmed1996said/gardnet?tab=readme-ov-file (<== this is from the "parent" challenge prior to this project that we are working on)
+c. https://github.com/ahmed1996said/gardnet?tab=readme-ov-file (<== this is from the "parent" challenge prior to this project that we are working on - the challenge focuses on image preprocessing?)
 
 
 ## Papers
