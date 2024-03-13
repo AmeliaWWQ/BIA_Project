@@ -10,6 +10,7 @@ c. https://github.com/ahmed1996said/gardnet?tab=readme-ov-file (<== this is from
 
 
 ## Papers
+a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf (ZY)
 
 # 3. Methodology
 ## Models
