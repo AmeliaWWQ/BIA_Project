@@ -15,7 +15,7 @@ e. https://github.com/facebookresearch/dinov2 (ZY)
 ## Papers
 a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf (ZY)
 
-b. https://airogs.grand-challenge.org/challenge-paper/ (AW)
+b. https://ieeexplore.ieee.org/abstract/document/10253652 (AW)
 
 # 3. Methodology
 ## Models
