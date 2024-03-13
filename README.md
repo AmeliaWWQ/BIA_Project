@@ -1,13 +1,13 @@
-# Objectives
+# 1. Objectives
 
-# Previous works
+# 2. Previous works
 ## Github Repositories
 ## Papers
 
-# Methodology
+# 3. Methodology
 ## Models
 
-# Experiments
+# 4. Experiments
 ## Data preprocessing
 
 ## Results
