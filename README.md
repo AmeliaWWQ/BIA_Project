@@ -5,7 +5,10 @@
 a. https://github.com/DM2LL/JustRAIGS-IEEE-ISBI-2024
 
 b. https://github.com/kr-viku/GLAUCOMA-DETECTION
-c. 
+
+c. https://github.com/ahmed1996said/gardnet?tab=readme-ov-file
+
+
 ## Papers
 
 # 3. Methodology
