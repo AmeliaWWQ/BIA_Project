@@ -14,6 +14,8 @@ d. https://github.com/Vijaisai/final-year-projrct/blob/master/Glaucoma_Full.ipyn
 ## Papers
 a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf (ZY)
 
+b. https://airogs.grand-challenge.org/challenge-paper/
+
 # 3. Methodology
 ## Models
 
