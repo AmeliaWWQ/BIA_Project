@@ -17,6 +17,8 @@ a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf
 
 b. https://ieeexplore.ieee.org/abstract/document/10253652 (AW)
 
+c. https://arxiv.org/abs/2304.07193 (DINOv2) (ZY)
+
 # 3. Methodology
 ## Models
 
