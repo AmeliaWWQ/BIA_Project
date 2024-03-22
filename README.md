@@ -26,3 +26,10 @@ c. https://arxiv.org/abs/2304.07193 (DINOv2) (ZY)
 ## Data preprocessing
 
 ## Results
+
+
+# 5. Group Presentation Links
+## Initial Results
+https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EXng38SmqXtKi6ja7CABhkEBo3lHTdpViVQqoHcoAZKHEg?e=9Yvxk5
+## Final Presention
+no link yet
