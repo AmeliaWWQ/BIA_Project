@@ -36,7 +36,7 @@ https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EXng38SmqXtK
 - Provide more clinical knowledge on glaucoma, for example, what kind of imaging features in retinal fundus images distinguish referable cases from non-referable cases?
 - Do a literature review on how related works solve glaucoma diagnosis probelms.
 - Refine the research hypothesis to, say, "Machine learning models can detect disease-specific imaging features to accurately classify non-referable and referable glaucoma".
-- From Dr. Yan: we are doing blind classification... (hhh)
+- From Dr. Yan: we are doing blind classification...
 
 ## Final Presention
 no link yet
