@@ -38,9 +38,9 @@ https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EXng38SmqXtK
 - Refine the research hypothesis to, say, "Machine learning models can detect disease-specific imaging features to accurately classify non-referable and referable glaucoma".
 - From Dr. Yan: we are doing blind classification...
 ### *Additional feedback from Xinrui*
--For ongoing experiments, testing multiple versions of ResNet might not be helpful. If you want to run more experiments, perhaps try ResNet, VGG, AlexNet and see how the performance differs.
--The other team has identified that the cup is the key for classification. My suggestion is that you can manually label the cup bounding box for 30-ish cases and train a network to predict that bounding box, then use the prediction to crop a subregion from the original image. Since the bounding box is but a rough estimate, the task should be very easy, and 30 training samples should be enough.
--You need to do better literature review to find out how others are tackling the problem. 
+- For ongoing experiments, testing multiple versions of ResNet might not be helpful. If you want to run more experiments, perhaps try ResNet, VGG, AlexNet and see how the performance differs.
+- The other team has identified that the cup is the key for classification. My suggestion is that you can manually label the cup bounding box for 30-ish cases and train a network to predict that bounding box, then use the prediction to crop a subregion from the original image. Since the bounding box is but a rough estimate, the task should be very easy, and 30 training samples should be enough.
+- You need to do better literature review to find out how others are tackling the problem. 
 
 ## Final Presention
 no link yet
