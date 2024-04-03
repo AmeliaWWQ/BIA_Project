@@ -19,6 +19,8 @@ b. https://ieeexplore.ieee.org/abstract/document/10253652 (AW)
 
 c. https://arxiv.org/abs/2304.07193 (DINOv2) (ZY)
 
+d. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10340208/
+
 # 3. Methodology
 ## Models
 
