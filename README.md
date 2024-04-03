@@ -21,6 +21,8 @@ c. https://arxiv.org/abs/2304.07193 (DINOv2) (ZY)
 
 d. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10340208/
 
+e. https://www.sciencedirect.com/science/article/pii/S0039625722001163
+
 # 3. Methodology
 ## Models
 
