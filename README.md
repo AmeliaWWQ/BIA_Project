@@ -23,6 +23,8 @@ d. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10340208/
 
 e. https://www.sciencedirect.com/science/article/pii/S0039625722001163
 
+f. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9485377/
+
 # 3. Methodology
 ## Models
 
