@@ -27,6 +27,8 @@ f. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9485377/
 
 g. https://ieeexplore.ieee.org/abstract/document/10253652
 
+h. https://scholar.google.com/scholar?as_q=Combination+of+Supervised+Learning+and+Unsupervised+Learning+to+Detect+Ungradable+Images+in+the+Airogs+Challenge&as_occt=title&hl=en&as_sdt=0%2C31
+
 # 3. Methodology
 ## Models
 
