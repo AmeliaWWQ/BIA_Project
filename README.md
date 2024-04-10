@@ -38,6 +38,9 @@ f. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9485377/
 ## Initial Results
 https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EXng38SmqXtKi6ja7CABhkEBo3lHTdpViVQqoHcoAZKHEg?e=9Yvxk5
 
+##Results to share with Dr. Yan
+https://rpiexchange-my.sharepoint.com/:p:/g/personal/wanga13_rpi_edu/EafRFpI2YjlKgI9USQSRZTMBjPtHdz6UvJkwSEuXbklpsQ?e=WaVS98
+
 ### *Feedback from March 29 presentation*
 - Provide more clinical knowledge on glaucoma, for example, what kind of imaging features in retinal fundus images distinguish referable cases from non-referable cases?
 - Do a literature review on how related works solve glaucoma diagnosis probelms.
