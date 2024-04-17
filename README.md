@@ -56,4 +56,4 @@ https://rpiexchange-my.sharepoint.com/:p:/g/personal/wanga13_rpi_edu/EafRFpI2Yjl
 - You need to do better literature review to find out how others are tackling the problem. 
 
 ## Final Presention
-no link yet
+https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EQFkajCeoXVBibCj45DdqpEBHn_x_IwkCnB-r4VKNFBAbg?e=8Hhsu7
