@@ -29,6 +29,8 @@ g. https://ieeexplore.ieee.org/abstract/document/10253652
 
 h. https://scholar.google.com/scholar?as_q=Combination+of+Supervised+Learning+and+Unsupervised+Learning+to+Detect+Ungradable+Images+in+the+Airogs+Challenge&as_occt=title&hl=en&as_sdt=0%2C31
 
+i. https://arxiv.org/abs/1704.00979
+
 # 3. Methodology
 ## Models
 
