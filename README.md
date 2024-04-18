@@ -12,6 +12,8 @@ d. https://github.com/Vijaisai/final-year-projrct/blob/master/Glaucoma_Full.ipyn
 
 e. https://github.com/facebookresearch/dinov2 (ZY)
 
+f.https://github.com/seva100/optic-nerve-cnn
+
 ## Papers
 a. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8198489/pdf/sensors-21-03704.pdf (ZY)
 
