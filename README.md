@@ -44,10 +44,10 @@ We trained different models through 3 different architectures: ResNet18, ResNet5
 
 # 4. Experiments
 ## Data preprocessing
-   For data preprocessing or image preprocessing, we performed
-     ### 1. Directly downsizing all images to a uniform dimension of 512 x 512
-     ### 2. Cropping the images to field-of-view, then downsize all to have dimension of 512 x 512
-     ### 3. Applying contrast limited adaptive histogram equaliztion of images processed by 2 from above.
+For data preprocessing or image preprocessing, we performed
+ ### 1. Directly downsizing all images to a uniform dimension of 512 x 512
+ ### 2. Cropping the images to field-of-view, then downsize all to have dimension of 512 x 512
+ ### 3. Applying contrast limited adaptive histogram equaliztion of images processed by 2 from above.
 ## Results
    Project results can be seen in the final presentation slides attached to the end of this README file
 
