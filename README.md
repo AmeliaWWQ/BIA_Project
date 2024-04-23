@@ -1,5 +1,9 @@
 # 1. Objectives
 
+Develop an AI model that can classify images as non-referable glaucoma (NRG) or referable glaucoma (RG).
+
+Hypothesis: Machine learning models could detect disease-specific features on color fundus images and use them to predict glaucoma.
+
 # 2. Previous works
 ## Github Repositories
 a. https://github.com/DM2LL/JustRAIGS-IEEE-ISBI-2024
@@ -36,11 +40,16 @@ i. https://arxiv.org/abs/1704.00979
 # 3. Methodology
 ## Models
 
+We trained different models through 3 different architectures: ResNet18, ResNet50, and Vision Transformers.
+
 # 4. Experiments
 ## Data preprocessing
-
+   For data preprocessing or image preprocessing, we performed
+     ### 1. Directly downsizing all images to a uniform dimension of 512 x 512
+     ### 2. Cropping the images to field-of-view, then downsize all to have dimension of 512 x 512
+     ### 3. Applying contrast limited adaptive histogram equaliztion of images processed by 2 from above.
 ## Results
-
+   Project results can be seen in the final presentation slides attached to the end of this README file
 
 # 5. Group Presentation Links
 ## Initial Results
