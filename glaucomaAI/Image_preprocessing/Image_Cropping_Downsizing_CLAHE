@@ -1,0 +1,356 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ffbf03ad-f690-4725-9d8b-5cc24656e4de",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import os\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "from PIL import Image\n",
+    "import pandas as pd\n",
+    "import os\n",
+    "from skimage.io import imread, imsave\n",
+    "from skimage.transform import resize\n",
+    "\n",
+    "def resize_image(input_image_path, output_image_path, desired_height):\n",
+    "    # Open the image file\n",
+    "    img = imread(input_image_path)\n",
+    "    # Perform Min-Max normalization\n",
+    "    min_val = np.min(img)\n",
+    "    max_val = np.max(img)\n",
+    "    img = (img - min_val) / (max_val - min_val) #min-max normalization\n",
+    "    '''\n",
+    "    plt.imshow(img[:, :, 0], cmap = \"Reds\")\n",
+    "    plt.show()\n",
+    "\n",
+    "    plt.imshow(img[:, :, 1], cmap = \"Greens\")\n",
+    "    plt.show()\n",
+    "\n",
+    "    plt.imshow(img[:, :, 2], cmap = \"Blues\")\n",
+    "    plt.show()\n",
+    "    '''\n",
+    "    # Convert normalized array back to image\n",
+    "    #img = Image.fromarray((normalized_img_array * 255).astype(np.uint8))\n",
+    "    \n",
+    "    # Calculate new width based on aspect ratio\n",
+    "    height, width, channels = img.shape\n",
+    "\n",
+    "    #print(channels)\n",
+    "    aspect_ratio = width / height\n",
+    "    desired_width = int(aspect_ratio * desired_height)\n",
+    "    # Resize the image\n",
+    "    img = Image.fromarray((img * 255).astype(np.uint8))\n",
+    "    resized_img = img.resize((desired_width, desired_height))\n",
+    "    crop_width = 0.17*(desired_width - desired_height)\n",
+    "    y2 = desired_width - crop_width\n",
+    "    resized_img = resized_img.crop((crop_width, 0, y2, desired_height))\n",
+    "    resized_img = resized_img.resize((512, 512))\n",
+    "    # Save the resized image\n",
+    "    #plt.imshow(resized_img) #commentout\n",
+    "    #plt.show() #comment out\n",
+    "    resized_img.save(output_image_path)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "466a649a-9790-4f8b-be51-8af6cb4c0bed",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Example usage\n",
+    "input_image = '5/TRAIN087283.JPG'\n",
+    "output_image = 'crop.jpg'\n",
+    "desired_height = 512  # specify your desired height\n",
+    "resize_image(input_image, output_image, desired_height)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "17b346e8-6348-49c6-bf7d-0963cd022485",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "No such file: 'C:\\Users\\ameli\\BMED4460_Biological_Image_Analysis\\project\\TRAIN101441'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[3], line 12\u001b[0m\n\u001b[0;32m      9\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m p \u001b[38;5;129;01min\u001b[39;00m \u001b[38;5;28mrange\u001b[39m(\u001b[38;5;241m72971\u001b[39m, paths\u001b[38;5;241m.\u001b[39msize):\n\u001b[0;32m     11\u001b[0m     output_path \u001b[38;5;241m=\u001b[39m os\u001b[38;5;241m.\u001b[39mpath\u001b[38;5;241m.\u001b[39mjoin(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mall_images/\u001b[39m\u001b[38;5;124m\"\u001b[39m, paths[p][\u001b[38;5;241m2\u001b[39m:])\n\u001b[1;32m---> 12\u001b[0m     resize_image(paths[p], output_path, \u001b[38;5;241m512\u001b[39m)\n",
+      "Cell \u001b[1;32mIn[1], line 13\u001b[0m, in \u001b[0;36mresize_image\u001b[1;34m(input_image_path, output_image_path, desired_height)\u001b[0m\n\u001b[0;32m     11\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mresize_image\u001b[39m(input_image_path, output_image_path, desired_height):\n\u001b[0;32m     12\u001b[0m     \u001b[38;5;66;03m# Open the image file\u001b[39;00m\n\u001b[1;32m---> 13\u001b[0m     img \u001b[38;5;241m=\u001b[39m imread(input_image_path)\n\u001b[0;32m     14\u001b[0m     \u001b[38;5;66;03m# Perform Min-Max normalization\u001b[39;00m\n\u001b[0;32m     15\u001b[0m     min_val \u001b[38;5;241m=\u001b[39m np\u001b[38;5;241m.\u001b[39mmin(img)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\_io.py:53\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(fname, as_gray, plugin, **plugin_args)\u001b[0m\n\u001b[0;32m     50\u001b[0m         plugin \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mtifffile\u001b[39m\u001b[38;5;124m'\u001b[39m\n\u001b[0;32m     52\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m file_or_url_context(fname) \u001b[38;5;28;01mas\u001b[39;00m fname:\n\u001b[1;32m---> 53\u001b[0m     img \u001b[38;5;241m=\u001b[39m call_plugin(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mimread\u001b[39m\u001b[38;5;124m'\u001b[39m, fname, plugin\u001b[38;5;241m=\u001b[39mplugin, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mplugin_args)\n\u001b[0;32m     55\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28mhasattr\u001b[39m(img, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mndim\u001b[39m\u001b[38;5;124m'\u001b[39m):\n\u001b[0;32m     56\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m img\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\manage_plugins.py:205\u001b[0m, in \u001b[0;36mcall_plugin\u001b[1;34m(kind, *args, **kwargs)\u001b[0m\n\u001b[0;32m    202\u001b[0m     \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mIndexError\u001b[39;00m:\n\u001b[0;32m    203\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mRuntimeError\u001b[39;00m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mCould not find the plugin \u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;132;01m{\u001b[39;00mplugin\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m for \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mkind\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m.\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m--> 205\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m func(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\_plugins\\imageio_plugin.py:11\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(*args, **kwargs)\u001b[0m\n\u001b[0;32m      9\u001b[0m \u001b[38;5;129m@wraps\u001b[39m(imageio_imread)\n\u001b[0;32m     10\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mimread\u001b[39m(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs):\n\u001b[1;32m---> 11\u001b[0m     out \u001b[38;5;241m=\u001b[39m np\u001b[38;5;241m.\u001b[39masarray(imageio_imread(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs))\n\u001b[0;32m     12\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m out\u001b[38;5;241m.\u001b[39mflags[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mWRITEABLE\u001b[39m\u001b[38;5;124m'\u001b[39m]:\n\u001b[0;32m     13\u001b[0m         out \u001b[38;5;241m=\u001b[39m out\u001b[38;5;241m.\u001b[39mcopy()\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\v3.py:53\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(uri, index, plugin, extension, format_hint, **kwargs)\u001b[0m\n\u001b[0;32m     50\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m index \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m     51\u001b[0m     call_kwargs[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mindex\u001b[39m\u001b[38;5;124m\"\u001b[39m] \u001b[38;5;241m=\u001b[39m index\n\u001b[1;32m---> 53\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m imopen(uri, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mr\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mplugin_kwargs) \u001b[38;5;28;01mas\u001b[39;00m img_file:\n\u001b[0;32m     54\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m np\u001b[38;5;241m.\u001b[39masarray(img_file\u001b[38;5;241m.\u001b[39mread(\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mcall_kwargs))\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\core\\imopen.py:113\u001b[0m, in \u001b[0;36mimopen\u001b[1;34m(uri, io_mode, plugin, extension, format_hint, legacy_mode, **kwargs)\u001b[0m\n\u001b[0;32m    111\u001b[0m     request\u001b[38;5;241m.\u001b[39mformat_hint \u001b[38;5;241m=\u001b[39m format_hint\n\u001b[0;32m    112\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m--> 113\u001b[0m     request \u001b[38;5;241m=\u001b[39m Request(uri, io_mode, format_hint\u001b[38;5;241m=\u001b[39mformat_hint, extension\u001b[38;5;241m=\u001b[39mextension)\n\u001b[0;32m    115\u001b[0m source \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m<bytes>\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(uri, \u001b[38;5;28mbytes\u001b[39m) \u001b[38;5;28;01melse\u001b[39;00m uri\n\u001b[0;32m    117\u001b[0m \u001b[38;5;66;03m# fast-path based on plugin\u001b[39;00m\n\u001b[0;32m    118\u001b[0m \u001b[38;5;66;03m# (except in legacy mode)\u001b[39;00m\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\core\\request.py:247\u001b[0m, in \u001b[0;36mRequest.__init__\u001b[1;34m(self, uri, mode, extension, format_hint, **kwargs)\u001b[0m\n\u001b[0;32m    244\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInvalid Request.Mode: \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mmode\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m    246\u001b[0m \u001b[38;5;66;03m# Parse what was given\u001b[39;00m\n\u001b[1;32m--> 247\u001b[0m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_parse_uri(uri)\n\u001b[0;32m    249\u001b[0m \u001b[38;5;66;03m# Set extension\u001b[39;00m\n\u001b[0;32m    250\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m extension \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\core\\request.py:407\u001b[0m, in \u001b[0;36mRequest._parse_uri\u001b[1;34m(self, uri)\u001b[0m\n\u001b[0;32m    404\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m is_read_request:\n\u001b[0;32m    405\u001b[0m     \u001b[38;5;66;03m# Reading: check that the file exists (but is allowed a dir)\u001b[39;00m\n\u001b[0;32m    406\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m os\u001b[38;5;241m.\u001b[39mpath\u001b[38;5;241m.\u001b[39mexists(fn):\n\u001b[1;32m--> 407\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mFileNotFoundError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mNo such file: \u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;132;01m%s\u001b[39;00m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m fn)\n\u001b[0;32m    408\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[0;32m    409\u001b[0m     \u001b[38;5;66;03m# Writing: check that the directory to write to does exist\u001b[39;00m\n\u001b[0;32m    410\u001b[0m     dn \u001b[38;5;241m=\u001b[39m os\u001b[38;5;241m.\u001b[39mpath\u001b[38;5;241m.\u001b[39mdirname(fn)\n",
+      "\u001b[1;31mFileNotFoundError\u001b[0m: No such file: 'C:\\Users\\ameli\\BMED4460_Biological_Image_Analysis\\project\\TRAIN101441'"
+     ]
+    }
+   ],
+   "source": [
+    "#Downsizing images\n",
+    "import pandas as pd\n",
+    "import os\n",
+    "from skimage.io import imread, imsave\n",
+    "from skimage.transform import resize\n",
+    "df = pd.read_csv('divided_datasets/path_specified_label_SIMPLIFIED.csv')\n",
+    "paths = df['Eye ID']#done. next run starts on 1750\n",
+    "\n",
+    "for p in range(0, paths.size):\n",
+    "    output_path = os.path.join(\"all_images/\", paths[p][2:])\n",
+    "    resize_image(paths[p], output_path, 512) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "50aa252c-5dde-4e3d-a59c-6420fef815fe",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[9], line 10\u001b[0m\n\u001b[0;32m      7\u001b[0m paths \u001b[38;5;241m=\u001b[39m df[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mEye ID\u001b[39m\u001b[38;5;124m'\u001b[39m]\n\u001b[0;32m      9\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m p \u001b[38;5;129;01min\u001b[39;00m paths:\n\u001b[1;32m---> 10\u001b[0m     img \u001b[38;5;241m=\u001b[39m imread(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mall_images/\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;241m+\u001b[39mp[\u001b[38;5;241m2\u001b[39m:])\n\u001b[0;32m     11\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m(img\u001b[38;5;241m.\u001b[39mshape[\u001b[38;5;241m-\u001b[39m\u001b[38;5;241m1\u001b[39m]\u001b[38;5;241m!=\u001b[39m\u001b[38;5;241m3\u001b[39m):\n\u001b[0;32m     12\u001b[0m         \u001b[38;5;28mprint\u001b[39m(p \u001b[38;5;241m+\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m - \u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m+\u001b[39m \u001b[38;5;28mstr\u001b[39m(img\u001b[38;5;241m.\u001b[39mshape[\u001b[38;5;241m-\u001b[39m\u001b[38;5;241m1\u001b[39m]))\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\_io.py:53\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(fname, as_gray, plugin, **plugin_args)\u001b[0m\n\u001b[0;32m     50\u001b[0m         plugin \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mtifffile\u001b[39m\u001b[38;5;124m'\u001b[39m\n\u001b[0;32m     52\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m file_or_url_context(fname) \u001b[38;5;28;01mas\u001b[39;00m fname:\n\u001b[1;32m---> 53\u001b[0m     img \u001b[38;5;241m=\u001b[39m call_plugin(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mimread\u001b[39m\u001b[38;5;124m'\u001b[39m, fname, plugin\u001b[38;5;241m=\u001b[39mplugin, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mplugin_args)\n\u001b[0;32m     55\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28mhasattr\u001b[39m(img, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mndim\u001b[39m\u001b[38;5;124m'\u001b[39m):\n\u001b[0;32m     56\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m img\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\manage_plugins.py:205\u001b[0m, in \u001b[0;36mcall_plugin\u001b[1;34m(kind, *args, **kwargs)\u001b[0m\n\u001b[0;32m    202\u001b[0m     \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mIndexError\u001b[39;00m:\n\u001b[0;32m    203\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mRuntimeError\u001b[39;00m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mCould not find the plugin \u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;132;01m{\u001b[39;00mplugin\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m for \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mkind\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m.\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m--> 205\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m func(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\skimage\\io\\_plugins\\imageio_plugin.py:11\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(*args, **kwargs)\u001b[0m\n\u001b[0;32m      9\u001b[0m \u001b[38;5;129m@wraps\u001b[39m(imageio_imread)\n\u001b[0;32m     10\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mimread\u001b[39m(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs):\n\u001b[1;32m---> 11\u001b[0m     out \u001b[38;5;241m=\u001b[39m np\u001b[38;5;241m.\u001b[39masarray(imageio_imread(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs))\n\u001b[0;32m     12\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m out\u001b[38;5;241m.\u001b[39mflags[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mWRITEABLE\u001b[39m\u001b[38;5;124m'\u001b[39m]:\n\u001b[0;32m     13\u001b[0m         out \u001b[38;5;241m=\u001b[39m out\u001b[38;5;241m.\u001b[39mcopy()\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\v3.py:53\u001b[0m, in \u001b[0;36mimread\u001b[1;34m(uri, index, plugin, extension, format_hint, **kwargs)\u001b[0m\n\u001b[0;32m     50\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m index \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m     51\u001b[0m     call_kwargs[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mindex\u001b[39m\u001b[38;5;124m\"\u001b[39m] \u001b[38;5;241m=\u001b[39m index\n\u001b[1;32m---> 53\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m imopen(uri, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mr\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mplugin_kwargs) \u001b[38;5;28;01mas\u001b[39;00m img_file:\n\u001b[0;32m     54\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m np\u001b[38;5;241m.\u001b[39masarray(img_file\u001b[38;5;241m.\u001b[39mread(\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mcall_kwargs))\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\core\\imopen.py:196\u001b[0m, in \u001b[0;36mimopen\u001b[1;34m(uri, io_mode, plugin, extension, format_hint, legacy_mode, **kwargs)\u001b[0m\n\u001b[0;32m    193\u001b[0m     \u001b[38;5;28;01mcontinue\u001b[39;00m\n\u001b[0;32m    195\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m--> 196\u001b[0m     plugin_instance \u001b[38;5;241m=\u001b[39m candidate_plugin(request, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs)\n\u001b[0;32m    197\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m InitializationError:\n\u001b[0;32m    198\u001b[0m     \u001b[38;5;66;03m# file extension doesn't match file type\u001b[39;00m\n\u001b[0;32m    199\u001b[0m     \u001b[38;5;28;01mcontinue\u001b[39;00m\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\imageio\\plugins\\pillow.py:85\u001b[0m, in \u001b[0;36mPillowPlugin.__init__\u001b[1;34m(self, request)\u001b[0m\n\u001b[0;32m     83\u001b[0m \u001b[38;5;66;03m# Register HEIF opener for Pillow\u001b[39;00m\n\u001b[0;32m     84\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m---> 85\u001b[0m     \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mpillow_heif\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m register_heif_opener\n\u001b[0;32m     86\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mImportError\u001b[39;00m:\n\u001b[0;32m     87\u001b[0m     \u001b[38;5;28;01mpass\u001b[39;00m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap>:1176\u001b[0m, in \u001b[0;36m_find_and_load\u001b[1;34m(name, import_)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap>:1138\u001b[0m, in \u001b[0;36m_find_and_load_unlocked\u001b[1;34m(name, import_)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap>:1078\u001b[0m, in \u001b[0;36m_find_spec\u001b[1;34m(name, path, target)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap_external>:1504\u001b[0m, in \u001b[0;36mfind_spec\u001b[1;34m(cls, fullname, path, target)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap_external>:1476\u001b[0m, in \u001b[0;36m_get_spec\u001b[1;34m(cls, fullname, path, target)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap_external>:1612\u001b[0m, in \u001b[0;36mfind_spec\u001b[1;34m(self, fullname, target)\u001b[0m\n",
+      "File \u001b[1;32m<frozen importlib._bootstrap_external>:147\u001b[0m, in \u001b[0;36m_path_stat\u001b[1;34m(path)\u001b[0m\n",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "#Downsizing images\n",
+    "import pandas as pd\n",
+    "import os\n",
+    "from skimage.io import imread, imsave\n",
+    "from skimage.transform import resize\n",
+    "df = pd.read_csv('divided_datasets/path_specified_label_SIMPLIFIED.csv')\n",
+    "paths = df['Eye ID']\n",
+    "\n",
+    "for p in paths:\n",
+    "    img = imread(\"all_images/\"+p[2:])\n",
+    "    if(img.shape[-1]!=3):\n",
+    "        print(p + \" - \" + str(img.shape[-1]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "1ad9f70b-600e-4c3f-914d-b6753328f16b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(512, 512, 3)\n"
+     ]
+    }
+   ],
+   "source": [
+    "img = imread(\"cropped_image/TRAIN059062.PNG\")\n",
+    "print(img.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "b5395eba-046b-4d20-b91b-a5babaa89a71",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(512, 512, 3)\n"
+     ]
+    }
+   ],
+   "source": [
+    "from PIL import Image\n",
+    "\n",
+    "def convert_rgba_to_rgb(input_image_path, output_image_path):\n",
+    "    # Open the image\n",
+    "    rgba_image = Image.open(input_image_path)\n",
+    "    \n",
+    "    # Convert RGBA to RGB\n",
+    "    rgb_image = rgba_image.convert('RGB')\n",
+    "        \n",
+    "    # Save the converted image\n",
+    "    rgb_image.save(output_image_path)\n",
+    "\n",
+    "# Example usage\n",
+    "input_path = \"cropped_image/TRAIN035808.PNG\"\n",
+    "output_path = \"TRAIN035808.PNG\"\n",
+    "convert_rgba_to_rgb(input_path, output_path)\n",
+    "img = imread(output_path)\n",
+    "print(img.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "94d99ec7-4534-41b2-af44-a86030f69331",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[5], line 28\u001b[0m\n\u001b[0;32m     26\u001b[0m \u001b[38;5;66;03m# Display the original and CLAHE-applied images\u001b[39;00m\n\u001b[0;32m     27\u001b[0m output_path \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mclahe_22/\u001b[39m\u001b[38;5;124m'\u001b[39m \u001b[38;5;241m+\u001b[39m paths[p][\u001b[38;5;241m2\u001b[39m:]\n\u001b[1;32m---> 28\u001b[0m cv2\u001b[38;5;241m.\u001b[39mimwrite(output_path, clahe_image)\n",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "import cv2\n",
+    "import pandas as pd\n",
+    "\n",
+    "# Read the CSV file containing image paths\n",
+    "df = pd.read_csv('divided_datasets/path_specified_label_SIMPLIFIED.csv')\n",
+    "paths = df['Eye ID']\n",
+    "\n",
+    "# Iterate through each row in the DataFrame\n",
+    "for p in range(20923, paths.size):\n",
+    "    image = cv2.imread(\"cropped_image/\"+paths[p][2:])\n",
+    "\n",
+    "    # Split the image into its RGB channels\n",
+    "    b, g, r = cv2.split(image)\n",
+    "    \n",
+    "    # Create a CLAHE object for each channel\n",
+    "    clahe = cv2.createCLAHE(clipLimit=1.0, tileGridSize=(8,8))\n",
+    "    \n",
+    "    # Apply CLAHE to each channel\n",
+    "    clahe_b = clahe.apply(b)\n",
+    "    clahe_g = clahe.apply(g)\n",
+    "    clahe_r = clahe.apply(r)\n",
+    "    \n",
+    "    # Merge the CLAHE-enhanced channels back into an RGB image\n",
+    "    clahe_image = cv2.merge((clahe_b, clahe_g, clahe_r))\n",
+    "    \n",
+    "    # Display the original and CLAHE-applied images\n",
+    "    output_path = 'clahe_22/' + paths[p][2:]\n",
+    "    cv2.imwrite(output_path, clahe_image)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "0c738973-c084-4f5d-8f2f-3d9bdb68a959",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import cv2\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "# Read the CSV file containing image paths\n",
+    "df = pd.read_csv('divided_datasets/path_specified_label_SIMPLIFIED.csv')\n",
+    "paths = df['Eye ID']\n",
+    "\n",
+    "# Iterate through each row in the DataFrame\n",
+    "for p in range(0, paths.size):\n",
+    "    image = cv2.imread(\"cropped_image/\"+paths[p][2:])\n",
+    "\n",
+    "    # Split the image into its RGB channels\n",
+    "    b, g, r = cv2.split(image)\n",
+    "    \n",
+    "    # Create a CLAHE object for each channel\n",
+    "    clahe = cv2.createCLAHE(clipLimit=1.0, tileGridSize=(8,8))\n",
+    "    \n",
+    "    # Apply CLAHE to each channel\n",
+    "    clahe_b = clahe.apply(b)\n",
+    "    clahe_g = clahe.apply(g)\n",
+    "    clahe_r = clahe.apply(r)\n",
+    "    \n",
+    "    # Merge the CLAHE-enhanced channels back into an RGB image\n",
+    "    clahe_image = cv2.merge((clahe_b, clahe_g, clahe_r))\n",
+    "    \n",
+    "    # Display the original and CLAHE-applied images\n",
+    "    output_path = 'clahe_22/' + paths[p][2:]\n",
+    "    cv2.imwrite(output_path, clahe_image)\n",
+    "    clahe_image = cv2.merge((np.full_like(b, 0), clahe_g, np.full_like(r, 0)))\n",
+    "    \n",
+    "    cv2.imwrite(output_path, clahe_image)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b3bd911e-9efe-4297-8170-9d2787bbe11d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Apply CLAHE to the image\n",
+    "    clahe = cv2.createCLAHE(clipLimit=10.0, tileGridSize=(8,8))\n",
+    "    clahe_image = clahe.apply(image)\n",
+    "\n",
+    "    # Display the original and CLAHE-applied images (optional)\n",
+    "    cv2.imshow('Original Image', image)\n",
+    "    cv2.imshow('CLAHE Image', clahe_image)\n",
+    "    cv2.waitKey(0)\n",
+    "    cv2.destroyAllWindows()\n",
+    "    break\n",
+    "\n",
+    "    # Save the CLAHE-applied image (optional)\n",
+    "    output_path = 'clahe_' + row['image_name']\n",
+    "    cv2.imwrite(output_path, clahe_image)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d4a91219-a3a5-4347-9cee-336c0dda30ec",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
