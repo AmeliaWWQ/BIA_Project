@@ -46,9 +46,6 @@ i. https://arxiv.org/abs/1704.00979
 ## Initial Results
 https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EXng38SmqXtKi6ja7CABhkEBo3lHTdpViVQqoHcoAZKHEg?e=9Yvxk5
 
-##Results to share with Dr. Yan
-https://rpiexchange-my.sharepoint.com/:p:/g/personal/wanga13_rpi_edu/EafRFpI2YjlKgI9USQSRZTMBjPtHdz6UvJkwSEuXbklpsQ?e=WaVS98
-
 ### *Feedback from March 29 presentation*
 - Provide more clinical knowledge on glaucoma, for example, what kind of imaging features in retinal fundus images distinguish referable cases from non-referable cases?
 - Do a literature review on how related works solve glaucoma diagnosis probelms.
@@ -58,6 +55,9 @@ https://rpiexchange-my.sharepoint.com/:p:/g/personal/wanga13_rpi_edu/EafRFpI2Yjl
 - For ongoing experiments, testing multiple versions of ResNet might not be helpful. If you want to run more experiments, perhaps try ResNet, VGG, AlexNet and see how the performance differs.
 - The other team has identified that the cup is the key for classification. My suggestion is that you can manually label the cup bounding box for 30-ish cases and train a network to predict that bounding box, then use the prediction to crop a subregion from the original image. Since the bounding box is but a rough estimate, the task should be very easy, and 30 training samples should be enough.
 - You need to do better literature review to find out how others are tackling the problem. 
+
+## Results to share with Dr. Yan
+https://rpiexchange-my.sharepoint.com/:p:/g/personal/wanga13_rpi_edu/EafRFpI2YjlKgI9USQSRZTMBjPtHdz6UvJkwSEuXbklpsQ?e=WaVS98
 
 ## Final Presention
 https://rpiexchange-my.sharepoint.com/:p:/g/personal/fougej_rpi_edu/EQFkajCeoXVBibCj45DdqpEBHn_x_IwkCnB-r4VKNFBAbg?e=8Hhsu7
